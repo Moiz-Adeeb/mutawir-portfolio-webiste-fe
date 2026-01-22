@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.text-primary {
+  color: #3b82f6;
+}
+
+.active-nav-link {
+  color: white;
+  background-color: black;
+}
+
+
