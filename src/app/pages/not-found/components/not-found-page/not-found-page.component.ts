@@ -21,6 +21,6 @@ export class NotFoundPageComponent {
   }
 
   navigate() {
-    this.router.navigate([this.isLoggedIn ? '/chat' : '/login']);
+    this.router.navigate(['/home']);
   }
 }
