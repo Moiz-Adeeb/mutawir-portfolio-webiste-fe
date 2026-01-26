@@ -6,25 +6,16 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidator } from '../../../../customValidator/custom-validator';
 import { AlertService } from '../../../../services/alert.service';
-import { QRCodeComponent } from 'angularx-qrcode';import { SafeUrl } from '@angular/platform-browser';
-;
-
+import { QRCodeComponent } from 'angularx-qrcode';
+import { SafeUrl } from '@angular/platform-browser';
 interface link{
   title: string
   icon: string
   route: string
 }
-
-
 @Component({
   selector: 'app-contact-page',
-  imports: [
-    CommonModule,
-    AppTextFieldComponent,
-    AppTextAreaFieldComponent,
-    AngularSvgIconModule,
-    QRCodeComponent
-],
+  imports: [CommonModule, AppTextFieldComponent, AppTextAreaFieldComponent, AngularSvgIconModule, QRCodeComponent],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.css',
   standalone: true,
@@ -67,19 +58,11 @@ export class ContactPageComponent {
     },
   ];
 
-  navigate = (route: string) => this.navigateToExternalUrl(route);
-
-  nameControl = new FormControl('', [
-    CustomValidator.required(),
-    Validators.maxLength(50),
-  ]);
-  emailControl = new FormControl('', [
-    CustomValidator.required(),
-    Validators.email,
-  ]);
+  nameControl = new FormControl('', [CustomValidator.required(), Validators.maxLength(50)]);
+  emailControl = new FormControl('', [CustomValidator.required(), Validators.email]);
   messageControl = new FormControl('', [CustomValidator.required()]);
 
-  contactFormGroup: FormGroup = new FormGroup({
+   contactFormGroup: FormGroup = new FormGroup({
     name: this.nameControl,
     email: this.emailControl,
     message: this.messageControl,
@@ -93,7 +76,6 @@ export class ContactPageComponent {
 
     const payload = {
       ...rawData,
-      // access_key: '4c2a9575-4cd4-4eba-87d2-019b42f7d01f',
       access_key: '0f752b71-7548-4622-91dc-c22fa8795a63',
     };
 
